@@ -1,54 +1,105 @@
-# 🤖 GPT Chat — AI Assistant App
+# Max Movies
 
-A Flutter mobile application that brings the power of AI directly to your fingertips. Chat with an intelligent assistant, get creative content, translations, code, and much more — all in a clean and modern UI.
+A Flutter movie discovery app powered by the TMDB API and Firebase, featuring authentication, real-time connectivity monitoring, and a sleek dark-themed UI.
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
-<p float="left">
-  <img src="home.png" width="300"/>
-  &nbsp;&nbsp;&nbsp;
-  <img src="start.png" width="300"/>
+<p align="center">
+  <img src="img1.png" width="200"/>
+  <img src="img2.png" width="200"/>
+  <img src="img3.png" width="200"/>
+  <img src="img4.png" width="200"/>
+  <img src="img5.png" width="200"/>
 </p>
 
 ---
 
-## ✨ Features
+## Features
 
-- 💬 **AI Chat** — Have a real-time conversation with an AI assistant powered by ChatGPT
-- ✍️ **Write a Poem** — Generate creative poems on any topic
-- 🌐 **Translate Anything** — Instantly translate text to any language
-- 💻 **Write a Code** — Get code snippets and programming help
-- 📧 **Write an Email** — Draft professional emails in seconds
-- 🍳 **Give me a Recipe** — Get cooking recipes based on your ingredients
-- ✅ **Correct Text** — Fix grammar and spelling mistakes
-- 🧠 **Solve a Problem** — Get help thinking through any challenge
-- 💡 **Business Ideas** — Brainstorm startup and business concepts
-- 📄 **Summarize Text** — Condense long content into key points
+- **Authentication** — Email/password login & signup, Google Sign-In, and guest access via Firebase Auth
+- **Movie Categories** — Browse Trending, Popular, Top Rated, Upcoming, and Discover sections
+- **Movie Details** — Full detail view for each movie
+- **Connectivity Monitoring** — Detects offline state and shows a no-internet screen automatically
+- **Persistent Session** — Remembers login state across app restarts using SharedPreferences
+- **Dark Theme** — Fully dark UI with custom fonts (Lora, Garamond, Kalam)
 
 ---
 
-## 🛠️ Built With
+## Tech Stack
 
-- [Flutter](https://flutter.dev/) — Cross-platform mobile framework
-- [Dart](https://dart.dev/) — Programming language
-- [OpenAI API](https://platform.openai.com/) — AI responses powered by ChatGPT
+| Layer | Technology |
+|---|---|
+| Framework | Flutter (Dart) |
+| State Management | GetX |
+| Backend / Auth | Firebase Auth, Cloud Firestore |
+| Movie Data | TMDB API |
+| Networking | `http`, `cached_network_image` |
+| Storage | SharedPreferences |
+| Connectivity | connectivity_plus |
+| UI | carousel_slider, flutter_spinkit, fluttertoast |
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
+### Prerequisites
 
+- Flutter SDK `>=3.0.0`
+- A [TMDB API key](https://www.themoviedb.org/settings/api)
+- A Firebase project with Auth and Firestore enabled
 
-### Configuration
+### Setup
 
-Add your OpenAI API key in the project constants file:
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/your-username/movies.git
+   cd movies
+   ```
 
-```dart
-const String openAiApiKey = 'YOUR_API_KEY_HERE';
+2. **Install dependencies**
+   ```bash
+   flutter pub get
+   ```
 
+3. **Configure Firebase**
+   - Add your `google-services.json` (Android) and `GoogleService-Info.plist` (iOS) to the respective platform folders
+   - Update `lib/firebase_options.dart` with your Firebase project settings
 
-## 🙋‍♂️ Author
+4. **Run the app**
+   ```bash
+   flutter run
+   ```
 
-Made with ❤️ by [Ahmed Osman](https://github.com/AhmedOsmanOmer)
+---
+
+## Project Structure
+
+```
+lib/
+├── controllers/         # GetX controllers (auth, home, connectivity)
+├── core/
+│   ├── constants/       # API keys and endpoint URLs
+│   ├── utils/           # Screen size helpers
+│   └── widgets/         # Reusable widgets
+├── models/              # Movie data model
+└── views/
+    ├── auth/            # Login & signup screens
+    ├── home/            # Home screen with movie sections
+    ├── movie_details/   # Movie detail screen
+    ├── no_internet/     # Offline screen
+    └── splash/          # Splash screen
+```
+
+---
+
+## Author
+
+Made with love by [Ahmed Osman](https://github.com/AhmedOsmanOmer)
+
+---
+
+## License
+
+This project is for educational purposes only. Movie data is provided by [TMDB](https://www.themoviedb.org/).
